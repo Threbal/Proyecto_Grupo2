@@ -49,7 +49,7 @@ namespace SOLID_StudentPerformanceApp
             formAsistencia.Show();
         }
 
-        private void cerrarSesiónToolStripMenuItem_Click(object sender, EventArgs e)
+        private void cerrarSesionToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormLogin formLogin = new FormLogin();
             formLogin.Show();
