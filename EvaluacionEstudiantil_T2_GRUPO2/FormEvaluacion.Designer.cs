@@ -61,6 +61,7 @@ namespace EvaluacionEstudiantil_T2_GRUPO2
             // 
             // lblAlumno
             // 
+            lblAlumno.Font = new System.Drawing.Font("Times New Roman", 9F);
             lblAlumno.Location = new System.Drawing.Point(158, 104);
             lblAlumno.Name = "lblAlumno";
             lblAlumno.Size = new System.Drawing.Size(74, 19);
@@ -77,6 +78,7 @@ namespace EvaluacionEstudiantil_T2_GRUPO2
             // 
             // lblCodigo
             // 
+            lblCodigo.Font = new System.Drawing.Font("Times New Roman", 9F);
             lblCodigo.Location = new System.Drawing.Point(158, 127);
             lblCodigo.Name = "lblCodigo";
             lblCodigo.Size = new System.Drawing.Size(53, 19);
@@ -93,6 +95,7 @@ namespace EvaluacionEstudiantil_T2_GRUPO2
             // 
             // lblCurso
             // 
+            lblCurso.Font = new System.Drawing.Font("Times New Roman", 9F);
             lblCurso.Location = new System.Drawing.Point(158, 157);
             lblCurso.Name = "lblCurso";
             lblCurso.Size = new System.Drawing.Size(74, 20);
@@ -109,6 +112,7 @@ namespace EvaluacionEstudiantil_T2_GRUPO2
             // 
             // lblT1
             // 
+            lblT1.Font = new System.Drawing.Font("Times New Roman", 9F);
             lblT1.Location = new System.Drawing.Point(158, 191);
             lblT1.Name = "lblT1";
             lblT1.Size = new System.Drawing.Size(96, 16);
@@ -125,6 +129,7 @@ namespace EvaluacionEstudiantil_T2_GRUPO2
             // 
             // lblT2
             // 
+            lblT2.Font = new System.Drawing.Font("Times New Roman", 9F);
             lblT2.Location = new System.Drawing.Point(158, 214);
             lblT2.Name = "lblT2";
             lblT2.Size = new System.Drawing.Size(96, 16);
@@ -141,6 +146,7 @@ namespace EvaluacionEstudiantil_T2_GRUPO2
             // 
             // lblT3
             // 
+            lblT3.Font = new System.Drawing.Font("Times New Roman", 9F);
             lblT3.Location = new System.Drawing.Point(158, 236);
             lblT3.Name = "lblT3";
             lblT3.Size = new System.Drawing.Size(114, 16);
@@ -157,6 +163,7 @@ namespace EvaluacionEstudiantil_T2_GRUPO2
             // 
             // lblFinal
             // 
+            lblFinal.Font = new System.Drawing.Font("Times New Roman", 9F);
             lblFinal.Location = new System.Drawing.Point(158, 259);
             lblFinal.Name = "lblFinal";
             lblFinal.Size = new System.Drawing.Size(122, 20);
@@ -173,6 +180,7 @@ namespace EvaluacionEstudiantil_T2_GRUPO2
             // 
             // btnCalcular
             // 
+            btnCalcular.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
             btnCalcular.Location = new System.Drawing.Point(158, 281);
             btnCalcular.Margin = new Padding(3, 2, 3, 2);
             btnCalcular.Name = "btnCalcular";
@@ -183,6 +191,7 @@ namespace EvaluacionEstudiantil_T2_GRUPO2
             // 
             // lblResultado
             // 
+            lblResultado.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
             lblResultado.Location = new System.Drawing.Point(158, 311);
             lblResultado.Name = "lblResultado";
             lblResultado.Size = new System.Drawing.Size(256, 85);

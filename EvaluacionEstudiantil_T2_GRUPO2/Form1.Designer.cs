@@ -83,8 +83,11 @@ namespace SOLID_StudentPerformanceApp
             // evaluacionEstudianteToolStripMenuItem
 
             // 
+            evaluacionEstudianteToolStripMenuItem.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
 
+            evaluacionEstudianteToolStripMenuItem.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
             evaluacionEstudianteToolStripMenuItem.Name = "evaluacionEstudianteToolStripMenuItem";
+            evaluacionEstudianteToolStripMenuItem.Size = new System.Drawing.Size(125, 20);
 
             evaluacionEstudianteToolStripMenuItem.Size = new System.Drawing.Size(167, 24);
 
@@ -97,8 +100,10 @@ namespace SOLID_StudentPerformanceApp
             // asistenciaToolStripMenuItem
 
             // 
+            asistenciaToolStripMenuItem.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
 
             asistenciaToolStripMenuItem.Name = "asistenciaToolStripMenuItem";
+            asistenciaToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
 
             asistenciaToolStripMenuItem.Size = new System.Drawing.Size(89, 24);
 
@@ -111,6 +116,7 @@ namespace SOLID_StudentPerformanceApp
             // cerrarSesi�nToolStripMenuItem
 
             // 
+            
 
             cerrarSesionToolStripMenuItem.Name = "cerrarSesionToolStripMenuItem";
 
@@ -118,6 +124,12 @@ namespace SOLID_StudentPerformanceApp
 
             cerrarSesionToolStripMenuItem.Text = "Cerrar Sesion";
 
+            cerrarSesionToolStripMenuItem.Click += cerrarSesionToolStripMenuItem_Click;
+
+            cerrarSesionToolStripMenuItem.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            cerrarSesionToolStripMenuItem.Name = "cerrarSesiónToolStripMenuItem";
+            cerrarSesionToolStripMenuItem.Size = new System.Drawing.Size(83, 20);
+            cerrarSesionToolStripMenuItem.Text = "Cerrar Sesión";
             cerrarSesionToolStripMenuItem.Click += cerrarSesionToolStripMenuItem_Click;
 
             // 
@@ -135,18 +147,19 @@ namespace SOLID_StudentPerformanceApp
             // 
 
             toolStripContainer1.ContentPanel.Controls.Add(pictureBox1);
-
-            toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(507, 425);
+            toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(507, 429);
 
             toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
 
             toolStripContainer1.LeftToolStripPanelVisible = false;
+            toolStripContainer1.Location = new System.Drawing.Point(0, 24);
 
             toolStripContainer1.Location = new System.Drawing.Point(0, 28);
 
             toolStripContainer1.Name = "toolStripContainer1";
 
             toolStripContainer1.RightToolStripPanelVisible = false;
+            toolStripContainer1.Size = new System.Drawing.Size(507, 429);
 
             toolStripContainer1.Size = new System.Drawing.Size(507, 425);
 
