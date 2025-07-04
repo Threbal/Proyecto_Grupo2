@@ -33,9 +33,10 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("Times New Roman", 9F);
             label1.Location = new System.Drawing.Point(46, 42);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(127, 15);
+            label1.Size = new System.Drawing.Size(118, 15);
             label1.TabIndex = 0;
             label1.Text = "Registro de Asistencias";
             label1.Click += label1_Click;
@@ -52,6 +53,7 @@
             // 
             // btnGuardar
             // 
+            btnGuardar.Font = new System.Drawing.Font("Times New Roman", 9F);
             btnGuardar.Location = new System.Drawing.Point(160, 363);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new System.Drawing.Size(146, 23);
