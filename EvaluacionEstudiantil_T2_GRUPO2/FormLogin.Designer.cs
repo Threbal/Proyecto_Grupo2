@@ -59,6 +59,7 @@ namespace SOLID_StudentPerformanceApp
             // 
             // lblProfesor
             // 
+            lblProfesor.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
             lblProfesor.Location = new System.Drawing.Point(339, 111);
             lblProfesor.Name = "lblProfesor";
             lblProfesor.Size = new System.Drawing.Size(100, 15);
@@ -102,10 +103,10 @@ namespace SOLID_StudentPerformanceApp
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            label1.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
             label1.Location = new System.Drawing.Point(400, 35);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(150, 32);
+            label1.Size = new System.Drawing.Size(165, 26);
             label1.TabIndex = 8;
             label1.Text = "BIENVENIDO";
             // 
