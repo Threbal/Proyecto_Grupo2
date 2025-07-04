@@ -68,7 +68,6 @@ namespace SOLID_StudentPerformanceApp
             // 
             // lblCurso
             // 
-            lblCurso.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
             lblCurso.Location = new System.Drawing.Point(339, 146);
             lblCurso.Name = "lblCurso";
             lblCurso.Size = new System.Drawing.Size(100, 15);
@@ -77,7 +76,6 @@ namespace SOLID_StudentPerformanceApp
             // 
             // lblPassword
             // 
-            lblPassword.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
             lblPassword.Location = new System.Drawing.Point(339, 181);
             lblPassword.Name = "lblPassword";
             lblPassword.Size = new System.Drawing.Size(100, 15);
@@ -86,7 +84,6 @@ namespace SOLID_StudentPerformanceApp
             // 
             // btnIngresar
             // 
-            btnIngresar.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
             btnIngresar.Location = new System.Drawing.Point(339, 211);
             btnIngresar.Name = "btnIngresar";
             btnIngresar.Size = new System.Drawing.Size(270, 30);
