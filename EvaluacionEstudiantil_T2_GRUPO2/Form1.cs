@@ -68,5 +68,19 @@ namespace SOLID_StudentPerformanceApp
         {
 
         }
+
+        private void cambioContraseñaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.toolStripContainer1.ContentPanel.Controls.Clear();
+
+            var formCambioPassword = new FormCambioPassword();
+            formCambioPassword.TopLevel = false;
+            formCambioPassword.FormBorderStyle = FormBorderStyle.None;
+            formCambioPassword.Dock = DockStyle.Fill;
+
+            this.toolStripContainer1.ContentPanel.Controls.Add(formCambioPassword);
+            formCambioPassword.Show();
+            
+        }
     }
 }
