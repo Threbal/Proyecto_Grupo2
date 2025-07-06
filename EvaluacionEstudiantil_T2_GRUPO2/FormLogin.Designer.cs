@@ -81,6 +81,7 @@ namespace SOLID_StudentPerformanceApp
             pictureBox1.Size = new System.Drawing.Size(300, 400);
             pictureBox1.TabIndex = 7;
             pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // label1
             // 

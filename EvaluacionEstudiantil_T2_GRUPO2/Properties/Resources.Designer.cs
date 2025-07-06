@@ -89,5 +89,52 @@ namespace EvaluacionEstudiantil_T2_GRUPO2.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+
+        internal static System.Drawing.Bitmap Alberth
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("Alberth", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        internal static System.Drawing.Bitmap Brando
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("Brando", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        internal static System.Drawing.Bitmap Zavala
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("Zavala", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        internal static System.Drawing.Bitmap Cohen
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("Cohen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        internal static System.Drawing.Bitmap Generico
+        {
+            get
+            {
+                object obj = ResourceManager.GetObject("Generico", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+
     }
 }
