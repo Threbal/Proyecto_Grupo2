@@ -4,10 +4,8 @@ namespace SOLID_StudentPerformanceApp
     {
         private System.ComponentModel.IContainer components = null;
         private System.Windows.Forms.TextBox txtProfesor;
-        private System.Windows.Forms.TextBox txtCurso;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label lblProfesor;
-        private System.Windows.Forms.Label lblCurso;
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.Button btnIngresar;
 
@@ -21,10 +19,8 @@ namespace SOLID_StudentPerformanceApp
         private void InitializeComponent()
         {
             txtProfesor = new System.Windows.Forms.TextBox();
-            txtCurso = new System.Windows.Forms.TextBox();
             txtPassword = new System.Windows.Forms.TextBox();
             lblProfesor = new System.Windows.Forms.Label();
-            lblCurso = new System.Windows.Forms.Label();
             lblPassword = new System.Windows.Forms.Label();
             btnIngresar = new System.Windows.Forms.Button();
             pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -40,13 +36,6 @@ namespace SOLID_StudentPerformanceApp
             txtProfesor.Name = "txtProfesor";
             txtProfesor.Size = new System.Drawing.Size(150, 23);
             txtProfesor.TabIndex = 1;
-            // 
-            // txtCurso
-            // 
-            txtCurso.Location = new System.Drawing.Point(459, 141);
-            txtCurso.Name = "txtCurso";
-            txtCurso.Size = new System.Drawing.Size(150, 23);
-            txtCurso.TabIndex = 3;
             // 
             // txtPassword
             // 
@@ -65,14 +54,6 @@ namespace SOLID_StudentPerformanceApp
             lblProfesor.TabIndex = 0;
             lblProfesor.Text = "Nombre:";
             // 
-            // lblCurso
-            // 
-            lblCurso.Location = new System.Drawing.Point(339, 146);
-            lblCurso.Name = "lblCurso";
-            lblCurso.Size = new System.Drawing.Size(100, 15);
-            lblCurso.TabIndex = 2;
-            lblCurso.Text = "Curso:";
-            // 
             // lblPassword
             // 
             lblPassword.Location = new System.Drawing.Point(339, 181);
@@ -80,6 +61,7 @@ namespace SOLID_StudentPerformanceApp
             lblPassword.Size = new System.Drawing.Size(100, 15);
             lblPassword.TabIndex = 4;
             lblPassword.Text = "Contraseña:";
+            lblPassword.Click += lblPassword_Click;
             // 
             // btnIngresar
             // 
@@ -127,13 +109,12 @@ namespace SOLID_StudentPerformanceApp
             Controls.Add(pictureBox1);
             Controls.Add(lblProfesor);
             Controls.Add(txtProfesor);
-            Controls.Add(lblCurso);
-            Controls.Add(txtCurso);
             Controls.Add(lblPassword);
             Controls.Add(txtPassword);
             Controls.Add(btnIngresar);
             Name = "FormLogin";
             Text = "Inicio de Sesión";
+            Load += FormLogin_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);

@@ -1,58 +1,51 @@
-﻿namespace EvaluacionEstudiantil_T2_GRUPO2
+﻿using System.Windows.Forms;
+
+namespace EvaluacionEstudiantil_T2_GRUPO2
 {
     partial class FormAsistencia
     {
-     
         private System.ComponentModel.IContainer components = null;
 
-  
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
-            {
                 components.Dispose();
-            }
             base.Dispose(disposing);
         }
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
-            label1 = new System.Windows.Forms.Label();
-            dgvAlumnos = new System.Windows.Forms.DataGridView();
-            btnGuardar = new System.Windows.Forms.Button();
+            label1 = new Label();
+            dgvAlumnos = new DataGridView();
+            btnGuardar = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvAlumnos).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(46, 42);
+            label1.Location = new System.Drawing.Point(46, 20);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(127, 15);
             label1.TabIndex = 0;
             label1.Text = "Registro de Asistencias";
-            label1.Click += label1_Click;
             // 
             // dgvAlumnos
             // 
-            dgvAlumnos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dgvAlumnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvAlumnos.Location = new System.Drawing.Point(46, 73);
+            dgvAlumnos.AllowUserToAddRows = false;
+            dgvAlumnos.AllowUserToDeleteRows = false;
+            dgvAlumnos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvAlumnos.Location = new System.Drawing.Point(46, 50);
             dgvAlumnos.Name = "dgvAlumnos";
-            dgvAlumnos.Size = new System.Drawing.Size(414, 261);
+            dgvAlumnos.RowHeadersVisible = false;
+            dgvAlumnos.Size = new System.Drawing.Size(600, 300);
             dgvAlumnos.TabIndex = 1;
-            dgvAlumnos.CellContentClick += dgvAlumnos_CellContentClick;
             // 
             // btnGuardar
             // 
-            btnGuardar.Location = new System.Drawing.Point(160, 363);
+            btnGuardar.Location = new System.Drawing.Point(260, 370);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new System.Drawing.Size(146, 23);
             btnGuardar.TabIndex = 2;
@@ -63,15 +56,16 @@
             // FormAsistencia
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(509, 415);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(750, 420);
             Controls.Add(btnGuardar);
             Controls.Add(dgvAlumnos);
             Controls.Add(label1);
-            FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            FormBorderStyle = FormBorderStyle.None;
             Name = "FormAsistencia";
             Text = "Marcar Asistencia";
+            Load += FormAsistencia_Load;
             ((System.ComponentModel.ISupportInitialize)dgvAlumnos).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -82,5 +76,35 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvAlumnos;
         private System.Windows.Forms.Button btnGuardar;
+
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCodigo = new DataGridViewTextBoxColumn
+        {
+            Name = "Codigo",
+            HeaderText = "Código",
+            ReadOnly = true
+        };
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNombre = new DataGridViewTextBoxColumn
+        {
+            Name = "Nombre",
+            HeaderText = "Nombre",
+            ReadOnly = true
+        };
+        private System.Windows.Forms.DataGridViewTextBoxColumn colApellidos = new DataGridViewTextBoxColumn
+        {
+            Name = "Apellidos",
+            HeaderText = "Apellidos",
+            ReadOnly = true
+        };
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCurso = new DataGridViewTextBoxColumn
+        {
+            Name = "Curso",
+            HeaderText = "Curso",
+            ReadOnly = true
+        };
+        private System.Windows.Forms.DataGridViewCheckBoxColumn colPresente = new DataGridViewCheckBoxColumn
+        {
+            Name = "Presente",
+            HeaderText = "Presente"
+        };
     }
 }
