@@ -16,6 +16,7 @@ namespace SOLID_StudentPerformanceApp
         FormAsistencia formAsistencia;
         FormEvaluacion formEvaluacion;
 
+
         public Form1(string profesor, string curso)
         {
             InitializeComponent();
@@ -43,17 +44,29 @@ namespace SOLID_StudentPerformanceApp
         private void asistenciaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.toolStripContainer1.ContentPanel.Controls.Clear();
-            formAsistencia = new FormAsistencia();
-            formAsistencia.MdiParent = this;
+
+            var formAsistencia = new FormAsistencia();
+            formAsistencia.TopLevel = false;
+            formAsistencia.FormBorderStyle = FormBorderStyle.None;
+            formAsistencia.Dock = DockStyle.Fill;
+
             this.toolStripContainer1.ContentPanel.Controls.Add(formAsistencia);
             formAsistencia.Show();
         }
+
 
         private void cerrarSesionToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormLogin formLogin = new FormLogin();
             formLogin.Show();
             this.Close();
+        }
+
+
+
+        private void toolStripContainer1_ContentPanel_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
