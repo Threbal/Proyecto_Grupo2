@@ -8,134 +8,150 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
 namespace EvaluacionEstudiantil_T2_GRUPO2
 {
     public partial class FormAsistencia : Form
     {
-        // Declaraciones dentro de la clase
-        private List<Alumno> _alumnos = new List<Alumno>();
-        private IRegistroAsistencia _registroAsistencia = new RegistroAsistenciaEnMemoria();
-
         public FormAsistencia()
         {
             InitializeComponent();
 
-            dgvAlumnos.AutoGenerateColumns = false;
+            // definir columnas
+            dgvAlumnos.Columns.Clear();
 
-            var colCodigo = new DataGridViewTextBoxColumn
-            {
-                Name = "Codigo",
-                HeaderText = "Código",
-                ReadOnly = true
-            };
-            dgvAlumnos.Columns.Add(colCodigo);
+            dgvAlumnos.Columns.Add("Codigo", "Código");
+            dgvAlumnos.Columns["Codigo"].ReadOnly = true;
 
-            var colNombre = new DataGridViewTextBoxColumn
-            {
-                Name = "Nombre",
-                HeaderText = "Nombre",
-                ReadOnly = true
-            };
-            dgvAlumnos.Columns.Add(colNombre);
+            dgvAlumnos.Columns.Add("Nombre", "Nombre");
+            dgvAlumnos.Columns["Nombre"].ReadOnly = true;
 
-            var colApellidos = new DataGridViewTextBoxColumn
-            {
-                Name = "Apellidos",
-                HeaderText = "Apellidos",
-                ReadOnly = true
-            };
-            dgvAlumnos.Columns.Add(colApellidos);
+            dgvAlumnos.Columns.Add("Apellidos", "Apellidos");
+            dgvAlumnos.Columns["Apellidos"].ReadOnly = true;
 
-            var colCurso = new DataGridViewTextBoxColumn
-            {
-                Name = "Curso",
-                HeaderText = "Curso",
-                ReadOnly = true
-            };
-            dgvAlumnos.Columns.Add(colCurso);
+            dgvAlumnos.Columns.Add("Curso", "Curso");
+            dgvAlumnos.Columns["Curso"].ReadOnly = true;
 
-            var colPresente = new DataGridViewCheckBoxColumn
-            {
-                Name = "Presente",
-                HeaderText = "Presente",
-                ReadOnly = false
-            };
+            var colPresente = new DataGridViewCheckBoxColumn();
+            colPresente.Name = "Presente";
+            colPresente.HeaderText = "Presente";
             dgvAlumnos.Columns.Add(colPresente);
 
-            _alumnos.Add(new Alumno { Codigo = "A001", Nombre = "Lucía", Apellidos = "González", Curso = "5A" });
-            _alumnos.Add(new Alumno { Codigo = "A002", Nombre = "Mateo", Apellidos = "Ramírez", Curso = "5A" });
-            _alumnos.Add(new Alumno { Codigo = "A003", Nombre = "Valentina", Apellidos = "Torres", Curso = "5A" });
-            _alumnos.Add(new Alumno { Codigo = "A004", Nombre = "Sebastián", Apellidos = "Flores", Curso = "5A" });
-            _alumnos.Add(new Alumno { Codigo = "A005", Nombre = "Camila", Apellidos = "Rojas", Curso = "5A" });
-            _alumnos.Add(new Alumno { Codigo = "A006", Nombre = "Diego", Apellidos = "Castillo", Curso = "5A" });
-            _alumnos.Add(new Alumno { Codigo = "A007", Nombre = "María", Apellidos = "Cruz", Curso = "5A" });
-            _alumnos.Add(new Alumno { Codigo = "A008", Nombre = "Daniel", Apellidos = "Reyes", Curso = "5A" });
-            _alumnos.Add(new Alumno { Codigo = "A009", Nombre = "Antonella", Apellidos = "Morales", Curso = "5A" });
-            _alumnos.Add(new Alumno { Codigo = "A010", Nombre = "Gabriel", Apellidos = "Peña", Curso = "5A" });
-            _alumnos.Add(new Alumno { Codigo = "A011", Nombre = "Sofía", Apellidos = "Ortega", Curso = "5A" });
-            _alumnos.Add(new Alumno { Codigo = "A012", Nombre = "Joaquín", Apellidos = "Herrera", Curso = "5A" });
-            _alumnos.Add(new Alumno { Codigo = "A013", Nombre = "Isabella", Apellidos = "Vargas", Curso = "5A" });
-            _alumnos.Add(new Alumno { Codigo = "A014", Nombre = "Tomás", Apellidos = "Mendoza", Curso = "5A" });
-            _alumnos.Add(new Alumno { Codigo = "A015", Nombre = "Ximena", Apellidos = "Silva", Curso = "5A" });
-            _alumnos.Add(new Alumno { Codigo = "A016", Nombre = "Emilio", Apellidos = "Navarro", Curso = "5A" });
-            _alumnos.Add(new Alumno { Codigo = "A017", Nombre = "Renata", Apellidos = "Suárez", Curso = "5A" });
-            _alumnos.Add(new Alumno { Codigo = "A018", Nombre = "Andrés", Apellidos = "Campos", Curso = "5A" });
-            _alumnos.Add(new Alumno { Codigo = "A019", Nombre = "Fernanda", Apellidos = "Aguilar", Curso = "5A" });
-            _alumnos.Add(new Alumno { Codigo = "A020", Nombre = "Bruno", Apellidos = "Cáceres", Curso = "5A" });
-
-
-            CargarAlumnosEnTabla();
+            // ahora carga datos
+            CargarAlumnosDesdeBase();
         }
 
-        private void CargarAlumnosEnTabla()
+
+        private void CargarAlumnosDesdeBase()
         {
             dgvAlumnos.Rows.Clear();
-            foreach (var alumno in _alumnos)
+
+            using (var conexion = new MySql.Data.MySqlClient.MySqlConnection(Conexion.Cadena))
             {
-                dgvAlumnos.Rows.Add(alumno.Codigo, alumno.Nombre, alumno.Apellidos, alumno.Curso, false);
+
+                try
+                {
+                    conexion.Open();
+                    string query = @"
+                SELECT a.codigo, a.nombre, a.apellidos, a.curso, 
+                       IFNULL(ast.presente, false) AS presente
+                FROM alumnos a
+                LEFT JOIN asistencias ast 
+                    ON ast.id_alumno = a.id_alumno AND ast.fecha = @fecha
+                WHERE a.id_profesor = @idProfesor
+            ";
+
+                    using (var cmd = new MySql.Data.MySqlClient.MySqlCommand(query, conexion))
+                    {
+                        cmd.Parameters.AddWithValue("@idProfesor", Sesion.IdProfesor);
+                        cmd.Parameters.AddWithValue("@fecha", DateTime.Today);
+
+                        var reader = cmd.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            dgvAlumnos.Rows.Add(
+                                reader.GetString("codigo"),
+                                reader.GetString("nombre"),
+                                reader.GetString("apellidos"),
+                                reader.GetString("curso"),
+                                reader.GetBoolean("presente")
+                            );
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al cargar alumnos: " + ex.Message);
+                }
             }
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-        }
 
-        private void dgvAlumnos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-        }
+
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             dgvAlumnos.EndEdit();
 
-            for (int i = 0; i < dgvAlumnos.Rows.Count; i++)
+            using (var conexion = new MySql.Data.MySqlClient.MySqlConnection(Conexion.Cadena))
             {
-                var fila = dgvAlumnos.Rows[i];
-
-                string codigo = fila.Cells["Codigo"].Value?.ToString();
-                Alumno alumno = _alumnos.Find(a => a.Codigo == codigo);
-
-                bool presente = false;
-
-                // Validar si la celda tiene un valor booleano
-                if (fila.Cells["Presente"].Value != null)
+                try
                 {
-                    bool.TryParse(fila.Cells["Presente"].Value.ToString(), out presente);
+                    conexion.Open();
+
+                    for (int i = 0; i < dgvAlumnos.Rows.Count; i++)
+                    {
+                        var fila = dgvAlumnos.Rows[i];
+                        bool presente = false;
+
+                        if (fila.Cells["Presente"].Value != null)
+                        {
+                            bool.TryParse(fila.Cells["Presente"].Value.ToString(), out presente);
+                        }
+
+                        string codigo = fila.Cells["Codigo"].Value.ToString();
+
+                        // obtener id_alumno
+                        string sqlId = "SELECT id_alumno FROM alumnos WHERE codigo = @codigo";
+                        int idAlumno = 0;
+                        using (var cmdId = new MySql.Data.MySqlClient.MySqlCommand(sqlId, conexion))
+                        {
+                            cmdId.Parameters.AddWithValue("@codigo", codigo);
+                            var result = cmdId.ExecuteScalar();
+                            if (result != null)
+                                idAlumno = Convert.ToInt32(result);
+                        }
+
+                        if (idAlumno > 0)
+                        {
+                            string sql = @"
+                        INSERT INTO asistencias (id_alumno, fecha, presente)
+                        VALUES (@idAlumno, @fecha, @presente)
+                        ON DUPLICATE KEY UPDATE presente = @presente
+                    ";
+                            using (var cmd = new MySql.Data.MySqlClient.MySqlCommand(sql, conexion))
+                            {
+                                cmd.Parameters.AddWithValue("@idAlumno", idAlumno);
+                                cmd.Parameters.AddWithValue("@fecha", DateTime.Today);
+                                cmd.Parameters.AddWithValue("@presente", presente);
+                                cmd.ExecuteNonQuery();
+                            }
+                        }
+                    }
+
+                    MessageBox.Show("Asistencias guardadas correctamente.");
+                    CargarAlumnosDesdeBase(); // para actualizar checks
                 }
-
-                var asistencia = new Asistencia
+                catch (Exception ex)
                 {
-                    Alumno = alumno,
-                    Fecha = DateTime.Today,
-                    Presente = presente
-                };
-
-                _registroAsistencia.RegistrarAsistencia(asistencia);
+                    MessageBox.Show("Error al guardar asistencia: " + ex.Message);
+                }
             }
+        }
 
-            MessageBox.Show("Asistencias registradas correctamente.", "Éxito");
+
+
+        private void FormAsistencia_Load(object sender, EventArgs e)
+        {
         }
     }
 }
-
