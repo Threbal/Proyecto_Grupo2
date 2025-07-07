@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net8.0-windows</TargetFramework>
@@ -11,6 +11,8 @@
     <Compile Remove="FormPerfilProfesor.Designer.cs" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="ClosedXML" Version="0.105.0" />
+    <PackageReference Include="EPPlus" Version="8.0.7" />
     <PackageReference Include="MySql.Data" Version="9.3.0" />
   </ItemGroup>
   <ItemGroup>

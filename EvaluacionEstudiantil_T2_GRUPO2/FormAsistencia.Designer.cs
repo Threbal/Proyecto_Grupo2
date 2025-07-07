@@ -20,6 +20,7 @@ namespace EvaluacionEstudiantil_T2_GRUPO2
             label1 = new Label();
             dgvAlumnos = new DataGridView();
             btnGuardar = new Button();
+            btnExportar = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvAlumnos).BeginInit();
             SuspendLayout();
             // 
@@ -53,11 +54,22 @@ namespace EvaluacionEstudiantil_T2_GRUPO2
             btnGuardar.UseVisualStyleBackColor = true;
             btnGuardar.Click += btnGuardar_Click;
             // 
+            // btnExportar
+            // 
+            btnExportar.Location = new System.Drawing.Point(495, 370);
+            btnExportar.Name = "btnExportar";
+            btnExportar.Size = new System.Drawing.Size(94, 23);
+            btnExportar.TabIndex = 3;
+            btnExportar.Text = "Exportar";
+            btnExportar.UseVisualStyleBackColor = true;
+            btnExportar.Click += btnExportar_Click;
+            // 
             // FormAsistencia
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(750, 420);
+            Controls.Add(btnExportar);
             Controls.Add(btnGuardar);
             Controls.Add(dgvAlumnos);
             Controls.Add(label1);
@@ -106,5 +118,6 @@ namespace EvaluacionEstudiantil_T2_GRUPO2
             Name = "Presente",
             HeaderText = "Presente"
         };
+        private Button btnExportar;
     }
 }

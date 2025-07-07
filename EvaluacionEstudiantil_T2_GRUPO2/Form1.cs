@@ -80,7 +80,20 @@ namespace SOLID_StudentPerformanceApp
 
             this.toolStripContainer1.ContentPanel.Controls.Add(formCambioPassword);
             formCambioPassword.Show();
-            
+
+        }
+
+        private void perfilDeProfesorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.toolStripContainer1.ContentPanel.Controls.Clear();
+
+            var formPerfilProfe = new FormPerfilProfe();
+            formPerfilProfe.TopLevel = false;
+            formPerfilProfe.FormBorderStyle = FormBorderStyle.None;
+            formPerfilProfe.Dock = DockStyle.Fill;
+
+            this.toolStripContainer1.ContentPanel.Controls.Add(formPerfilProfe);
+            formPerfilProfe.Show();
         }
     }
 }

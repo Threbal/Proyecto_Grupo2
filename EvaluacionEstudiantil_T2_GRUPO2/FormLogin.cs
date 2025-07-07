@@ -84,5 +84,10 @@ namespace SOLID_StudentPerformanceApp
         {
 
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
