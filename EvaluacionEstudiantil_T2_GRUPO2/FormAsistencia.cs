@@ -7,9 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
-using OfficeOpenXml;
-
 
 namespace EvaluacionEstudiantil_T2_GRUPO2
 {
@@ -156,39 +153,5 @@ namespace EvaluacionEstudiantil_T2_GRUPO2
         private void FormAsistencia_Load(object sender, EventArgs e)
         {
         }
-
-        private void btnExportar_Click(object sender, EventArgs e)
-        {
-            var wb = new ClosedXML.Excel.XLWorkbook();
-            var ws = wb.Worksheets.Add("Asistencias");
-
-            // cabeceras
-            for (int i = 0; i < dgvAlumnos.Columns.Count; i++)
-            {
-                ws.Cell(1, i + 1).Value = dgvAlumnos.Columns[i].HeaderText;
-            }
-
-            // datos
-            for (int i = 0; i < dgvAlumnos.Rows.Count; i++)
-            {
-                for (int j = 0; j < dgvAlumnos.Columns.Count; j++)
-                {
-                    ws.Cell(i + 2, j + 1).Value = dgvAlumnos.Rows[i].Cells[j].Value?.ToString();
-                }
-            }
-
-            var sfd = new SaveFileDialog
-            {
-                Filter = "Excel files (*.xlsx)|*.xlsx",
-                FileName = "Asistencias.xlsx"
-            };
-
-            if (sfd.ShowDialog() == DialogResult.OK)
-            {
-                wb.SaveAs(sfd.FileName);
-                MessageBox.Show("Archivo Excel exportado correctamente.");
-            }
-        }
-
     }
 }
