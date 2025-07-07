@@ -38,11 +38,10 @@ namespace SOLID_StudentPerformanceApp
             menuStrip1 = new System.Windows.Forms.MenuStrip();
             evaluacionEstudianteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             asistenciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            cambioContraseñaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             cerrarSesionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             pictureBox1 = new System.Windows.Forms.PictureBox();
-            perfilDeProfesorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            cambioContraseñaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             toolStripContainer1.ContentPanel.SuspendLayout();
             toolStripContainer1.SuspendLayout();
@@ -52,7 +51,7 @@ namespace SOLID_StudentPerformanceApp
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { perfilDeProfesorToolStripMenuItem, evaluacionEstudianteToolStripMenuItem, asistenciaToolStripMenuItem, cambioContraseñaToolStripMenuItem, cerrarSesionToolStripMenuItem });
+            menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { evaluacionEstudianteToolStripMenuItem, asistenciaToolStripMenuItem, cambioContraseñaToolStripMenuItem, cerrarSesionToolStripMenuItem });
             menuStrip1.Location = new System.Drawing.Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new System.Drawing.Size(708, 24);
@@ -72,13 +71,6 @@ namespace SOLID_StudentPerformanceApp
             asistenciaToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
             asistenciaToolStripMenuItem.Text = "Asistencia";
             asistenciaToolStripMenuItem.Click += asistenciaToolStripMenuItem_Click;
-            // 
-            // cambioContraseñaToolStripMenuItem
-            // 
-            cambioContraseñaToolStripMenuItem.Name = "cambioContraseñaToolStripMenuItem";
-            cambioContraseñaToolStripMenuItem.Size = new System.Drawing.Size(124, 20);
-            cambioContraseñaToolStripMenuItem.Text = "Cambio Contraseña";
-            cambioContraseñaToolStripMenuItem.Click += cambioContraseñaToolStripMenuItem_Click;
             // 
             // cerrarSesionToolStripMenuItem
             // 
@@ -116,12 +108,12 @@ namespace SOLID_StudentPerformanceApp
             pictureBox1.TabIndex = 36;
             pictureBox1.TabStop = false;
             // 
-            // perfilDeProfesorToolStripMenuItem
+            // cambioContraseñaToolStripMenuItem
             // 
-            perfilDeProfesorToolStripMenuItem.Name = "perfilDeProfesorToolStripMenuItem";
-            perfilDeProfesorToolStripMenuItem.Size = new System.Drawing.Size(109, 20);
-            perfilDeProfesorToolStripMenuItem.Text = "Perfil de Profesor";
-            perfilDeProfesorToolStripMenuItem.Click += perfilDeProfesorToolStripMenuItem_Click;
+            cambioContraseñaToolStripMenuItem.Name = "cambioContraseñaToolStripMenuItem";
+            cambioContraseñaToolStripMenuItem.Size = new System.Drawing.Size(124, 20);
+            cambioContraseñaToolStripMenuItem.Text = "Cambio Contraseña";
+            cambioContraseñaToolStripMenuItem.Click += cambioContraseñaToolStripMenuItem_Click;
             // 
             // Form1
             // 
@@ -158,7 +150,6 @@ namespace SOLID_StudentPerformanceApp
 
         private System.Windows.Forms.ToolStripMenuItem cerrarSesionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cambioContraseñaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem perfilDeProfesorToolStripMenuItem;
     }
 
 }
